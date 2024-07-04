@@ -12,7 +12,7 @@ services:
           name: celery-redis
           type: redis
           property: connectionString
-  - type: beat
+  - type: worker
     name: celery-beat
     region: Singapore
     runtime: python
