@@ -1,10 +1,10 @@
 services:
   - type: worker
     name: celery-worker
-    region: ohio
+    region: Singapore
     runtime: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "celery --app tasks worker --loglevel info --concurrency 4"
+    startCommand: "celery --app cfehome worker --loglevel info --concurrency 4"
     autoDeploy: false
     envVars:
       - key: CELERY_BROKER_URL
@@ -14,11 +14,11 @@ services:
           property: connectionString
   - type: web
     name: flower
-    region: ohio
+    region: Singapore
     plan: free
     runtime: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "celery flower --app tasks --loglevel info"
+    startCommand: "celery flower --app cfehome --loglevel info"
     autoDeploy: false
     envVars:
       - key: CELERY_BROKER_URL
